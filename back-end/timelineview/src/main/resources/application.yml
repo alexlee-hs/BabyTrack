@@ -1,0 +1,28 @@
+
+server:
+  error:
+    include: message=always
+    include-binding-errors: always
+
+spring:
+  application:
+    name: TimelineView
+  datasource:
+    url: jdbc:postgresql://localhost:5432/timeline_view_db
+    username: postgres
+    password: Asdf!234
+
+jwt:
+  secret: 1234567890123456789012345678901234567890
+  expiration: 86400000
+
+jpa:
+  hibernate:
+  ddl-auto: create-drop
+  properties:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
