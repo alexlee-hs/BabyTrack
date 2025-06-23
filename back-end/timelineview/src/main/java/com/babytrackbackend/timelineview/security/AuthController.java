@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final AuthenticationManager authManager;
-    private final UserRepository userRepository;
+    private final AppUserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
 
     public AuthController(AuthenticationManager authManager,
-                          UserRepository userRepository,
+                          AppUserRepository userRepository,
                           PasswordEncoder passwordEncoder,
                           JwtUtil jwtUtil) {
         this.authManager = authManager;
@@ -27,7 +27,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public String register(@RequestBody AuthRequest request) {
-        User user = User.builder()
+        AppUser user = AppUser.builder()
                 .username(request.getUsername())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .build();
